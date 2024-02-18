@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>HCI Classroom</title>
+    <link rel="icon" href="image.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+   
+    <title>Assignments Page</title>
+    <style>
+        /* Existing styles remain unchanged */
+
+    
+    .header {
+      background-color: #70da28;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .assignments-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .assignment-type-btn {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #3cdb34;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .assignment-type-btn:hover {
+            background-color: #c1bc25;
+            transform: translateY(-2px);
+        }
+
+        #uploadOption {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #fileInput {
+            margin: 10px 0;
+        }
+
+        .upload-btn {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            background-color: #81df1c;
+            color:#121111;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: bold;    
+        }
+        
+
+        .upload-btn:hover {
+            background-color: #b9af29;
+            transform: translateY(-2px);
+        }
+
+        .assignment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+            border-color: #121111;
+        }
+
+        .assignment-table th, .assignment-table td {
+            border: 1px solid #111010;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .assignment-table th {
+            background-color: #81df1c;
+            color:#121111;
+            font-weight: bold;
+        }
+        .assignment-table tr{
+            background-color: #313030;
+            color: #b8bda8;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #uploadOption .upload-btn{
+            color:black;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <h1>LMS-RJ COLLEGE</h1>
+    </div>
+    <!-- Existing code for header, assignments-section, and footer -->
+
+    <!-- Assignments Section -->
+    <div class="assignments-section">
+
+        <!-- <div id="uploadOption">
+            <h3>Upload Option</h3>
+            <label for="fileInput">Select file:</label>
+            <input type="file" id="fileInput" accept=".pdf, .png, .jpg, .jpeg">
+
+            <button class="upload-btn" onclick="submitAssignment()">Submit Assignment</button>
+        </div> -->
+
+
+        <h2>Assignment List</h2>
+        <table class="assignment-table">
+            <thead>
+                <tr>
+                    <th>Assignments Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HCI Assignment 1 <a href="images/HCI Assignment 1.pdf" style="color:#70da28;">View Assignment</a></td>
+
+                    <td><button class="upload-btn" onclick="showUploadOption('Assignment 1')">Upload</button></td>
+                    
+            
+                </tr>
+
+                <tr>
+                    <td>SQA Assignment 1 <a href="images/Assignment Questions- SQA Jan,24.docx.pdf" style="color:#70da28;">View Assignment</a></td>
+
+                    <td><button class="upload-btn" onclick="showUploadOption('Assignment 2')">Upload</button></td>
+                </tr>
+
+                <tr>
+                    <td>BI Assignment 1 <a href="images/BI Assignment.pdf" style="color:#70da28;">View Assignment</a></td>
+
+                    <td><button class="upload-btn" onclick="showUploadOption('Assignment 3')">Upload</button></td>
+                </tr>
+
+                <tr>
+                    <td>ITSM Assignment 1 <a href="images/ITSM ASSIGNMENT 1.pdf" style="color:#70da28;">View Assignment</a></td>
+
+                    <td><button class="upload-btn" onclick="showUploadOption('Assignment 4')">Upload</button></td>
+                </tr>
+
+                <tr>
+                    <td>GIS Assignment 1 <a href="images/GIS Assignment 1.pdf" style="color:#70da28;">View Assignment</a></td>
+
+                    <td><button class="upload-btn" onclick="showUploadOption('Assignment 5')">Upload</button></td>
+                </tr>
+                <!-- Add more assignments as needed -->
+            </tbody>
+        </table>
+        <div id="uploadOption">
+            <h3>Upload Option</h3>
+            <label for="fileInput">Select file:</label>
+            <input type="file" id="fileInput" accept=".pdf, .png, .jpg, .jpeg">
+
+            <button class="upload-btn" onclick="submitAssignment()">Submit Assignment</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>&copy; 6445_Omkar Shinde</p>
+    </div>
+
+    <script>
+        function showUploadOption(assignmentType) {
+            // Display the upload option div
+            document.getElementById('uploadOption').style.display = 'block';
+
+            // You can use assignmentType to handle different file types (PDF, link, image)
+            // For now, let's assume the user can upload any file type
+        }
+
+        function submitAssignment() {
+            // You can implement the logic to submit the assignment here
+            // For now, let's just hide the upload option div
+            document.getElementById('uploadOption').style.display = 'none';
+            alert('Assignment submitted successfully!');
+        }
+
+        function uploadAssignment(assignmentName) {
+            // You can implement the logic to upload the assignment for a specific assignmentName
+            alert('Uploading assignment for ' + assignmentName);
+        }
+    </script>
+
+</body>
+</html>
